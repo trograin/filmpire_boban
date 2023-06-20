@@ -17,7 +17,7 @@ const App = () => {
       <CssBaseline />
       <NavBar />
       <main className={classes.content}>
-        <div clssName={classes.toolbar} />
+        <div className={classes.toolbar} />
         <Switch>
         <Route exact path="/movies/:id">
             <MovieInformation />
