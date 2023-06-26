@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { useTheme} from '@mui/styles';
 
 import useStyles from './styles';
+import genreIcons from '../../assets/genres'
 
 const categories = [
   { label: 'Popular', value: 'popular'},
@@ -40,7 +41,7 @@ const Sidebar = ({ setMobileOpen }) => {
             <Link key={value} className={classes.links} to="/">
               <ListItem onClick={() => {}}>
                 {/*<ListItemIcon>
-                  <img src={redLogo} className={classes.genreImages} height={30}/>
+                  <img src={genreIcons[label.toLowerCase()]} className={classes.genreImages} height={30}/>
                 </ListItemIcon>*/}
                 <ListItemText primary={label}/>
               </ListItem>
@@ -50,11 +51,11 @@ const Sidebar = ({ setMobileOpen }) => {
       <Divider />
       <List>
         <ListSubheader>Genres</ListSubheader>
-          {demoCategories.map(({ label, value }) => (
-            <Link key={value} className={classes.links} to="/">
+          {demoCategories.map(({ label, id }) => (
+            <Link key={label} className={classes.links} to="/">
               <ListItem onClick={() => {}}>
                 {/*<ListItemIcon>
-                  <img src={redLogo} className={classes.genreImages} height={30}/>
+                  <img src={genreIcons[name.toLowerCase()]} className={classes.genreImages} height={30}/>
                 </ListItemIcon>*/}
                 <ListItemText primary={label}/>
               </ListItem>
