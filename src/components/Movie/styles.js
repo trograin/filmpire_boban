@@ -21,7 +21,7 @@ export default makeStyles((theme) => ({
     height: '300px',
     marginBottom: '10px',
     '&:hover': {
-      transform: 'scale(1.05)',
+      transform: 'scale(0.95)',
     },
   },
   title: {
