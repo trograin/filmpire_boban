@@ -17,8 +17,6 @@ const NavBar = () => {
   const isMobile = useMediaQuery('(max-width:600px)'); //Checks if the screen is larger than 600Px or not
   const theme = useTheme();
   const dispatch = useDispatch();
-
-  console.log(user);
   
   const token = localStorage.getItem('request_token');
   const sessionIdFromLocalStorage = localStorage.getItem('session_id');
