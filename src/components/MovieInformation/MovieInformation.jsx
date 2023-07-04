@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Modal, Typography, Button, ButtonGroup, Grid, Box, CircularProgress, useMediaQuery, Rating, Tooltip } from '@mui/material';
+import { Modal, Typography, Button, ButtonGroup, Grid, Box, CircularProgress, useMediaQuery, Rating } from '@mui/material';
 import { Movie as MovieIcon, Theaters, Language, PlusOne, Favorite, FavoriteBorderOutlined, Remove, ArrowBack } from '@mui/icons-material';
 import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -45,6 +45,8 @@ const MovieInformation = () => {
     setIsMovieFavorited((prev) => !prev);
   };
 
+  console.log({ isMovieWatchlisted });
+
   const addToWatchlist = async () => {
     await axios.post(`https://api.themoviedb.org/3/account/${user.id}/watchlist?api_key=${process.env.REACT_APP_TMDB_KEY}&session_id=${localStorage.getItem('session_id')}`, {
       media_type: 'movie',
@@ -89,11 +91,7 @@ const MovieInformation = () => {
         </Typography>
         <Grid item className={classes.containerSpaceAround}>
           <Box display="flex" align="center">
-            <Tooltip disableTouchListener title={`${data.vote_average} / 10`}>
-              <div>
-                <Rating readOnly value={data.vote_average / 2} />
-              </div>
-            </Tooltip>
+            <Rating readOnly value={data.vote_average / 2} />
             <Typography variant="subtitle1" gutterBottom style={{ marginLeft: '10px' }}>
               {data?.vote_average} / 10
             </Typography>
